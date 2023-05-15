@@ -49,7 +49,7 @@ while running:
     ball_pos[0] += ball_velocity[0] * time_step
     ball_pos[1] += ball_velocity[1] * time_step
 
-    #collisions
+    #collisions_boundaries
     if not environment_rect.contains(pygame.Rect(ball_pos[0] - ball_radius, ball_pos[1] - ball_radius, ball_radius * 2, ball_radius * 2)):
         ball_pos[0] = min(max(ball_pos[0], ball_radius), WINDOW_WIDTH - ball_radius)
         ball_pos[1] = min(max(ball_pos[1], ball_radius), WINDOW_HEIGHT - ball_radius)
