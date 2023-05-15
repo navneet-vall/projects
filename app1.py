@@ -6,7 +6,7 @@ class Calculator:
         self.master = master
         master.title("Calculator")
 
-        # Create the entry box for displaying the result
+        #result box
         self.result = tk.Entry(master, width=20, font=('Arial', 16))
         self.result.grid(row=0, column=0, columnspan=4, pady=10)
 
@@ -18,7 +18,7 @@ class Calculator:
             ['C', '0', '=', '+']
         ]
 
-        # Loop through the list of buttons and create them
+        #button loop
         for i in range(len(buttons)):
             for j in range(len(buttons[i])):
                 button = tk.Button(master, text=buttons[i][j], width=5, height=2, font=('Times New Roman', 20),
@@ -26,22 +26,22 @@ class Calculator:
                 button.grid(row=i + 1, column=j, padx=2, pady=2)
 
     def button_click(self, value):
-        # Clear the result entry box
+        #clr_result
         if value == 'C':
             self.result.delete(0, 'end')
 
-        # Evaluate the expression and display the result
+        #eval_expression
         elif value == '=':
             result = eval(self.result.get())
             self.result.delete(0, 'end')
             self.result.insert(0, str(result))
 
-        # Append the button value to the result entry box
+        #button_val
         else:
             self.result.insert('end', value)
 
 
-# Create the main window and start the application
+#main_app_window
 root = tk.Tk()
 calculator = Calculator(root)
 root.mainloop()
